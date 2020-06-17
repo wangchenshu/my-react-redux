@@ -1,13 +1,22 @@
 import React from 'react';
+import {StoreContext} from 'redux-react-hook';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
+import { createStore } from 'redux'
+import reducer from './reducers/index'
+import Counter from './Counter';
 import * as serviceWorker from './serviceWorker';
 
+const store = createStore(reducer)
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  //<React.StrictMode>
+  //  <App />
+  //</React.StrictMode>,
+  <StoreContext.Provider value={store}>
+    <Counter />
+  </StoreContext.Provider>, 
   document.getElementById('root')
 );
 
